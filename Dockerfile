@@ -5,6 +5,6 @@ RUN adduser --disabled-password --gecos "" anna && \
 USER anna
 WORKDIR /home/anna
 COPY pyproject.toml .
-RUN poetry install --no-root --without=dev
+RUN poetry install --no-root  # Instala todas las dependencias, incluyendo sanic_cors
 COPY . .
 CMD ["poetry", "run", "python", "run.py"]
